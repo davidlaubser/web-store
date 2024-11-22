@@ -9,6 +9,8 @@ import Footer from './components/Footer';
 import LandingPage from './pages/LandingPage';
 import StorePage from './pages/StorePage';
 import CartPage from './pages/CartPage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 
 
 function App() {
@@ -22,6 +24,8 @@ function App() {
               <Route path="/" element={<LandingPage />} />
               <Route path="/store" element={<StorePage />} />
               <Route path="/cart" element={<CartPage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
             </Routes>
           </div>
           <Footer />
