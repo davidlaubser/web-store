@@ -6,13 +6,16 @@ import { products } from "./StorePageData";
 import "../styles/ProductDetailsPage.css";
 
 const ProductDetailsPage = () => {
-  const { department, id } = useParams();
-  const product = products[department].find((product) => product.id === id);
+  const { id } = useParams();
+  const product = products.find((product) => product.id === parseInt(id));
   const dispatch = useDispatch();
-
   const addToCart = () => {
     dispatch(addItem(product));
   };
+
+  if (!product) {
+    return <div>Product not found</div>;
+  }
 
   const formattedPrice = new Intl.NumberFormat("en-ZA", {
     style: "currency",
@@ -20,18 +23,28 @@ const ProductDetailsPage = () => {
   }).format(product.price);
 
   return (
-    <div className="container">
+    <div className="container product-details">
       <div className="row">
         <div className="col-6">
-          <img src={product.image} alt={product.name} className="product-image" />
+          <img
+            src={product.image}
+            alt={product.name}
+            className="img-fluid rounded"
+          />
         </div>
-        <div className="col-6">
-          <h1>{product.name}</h1>
-          <p>{formattedPrice}</p>
-          <p>{product.description}</p>
-          <button className="btn btn-primary" onClick={addToCart}>
-            Add to Cart
-          </button>
+        <div className="col-md-6">
+          <div className="product-detail-container">
+            <h1>{product.name}</h1>
+          </div>
+          <div className="product-detail-container">
+            <p className="lead">{formattedPrice}</p>
+          </div>
+          <div className="product-detail-container">
+            <p>{product.description}</p>
+          </div>
+          <div className="product-detail-container">
+            <button className="btn btn-primary" onClick={addToCart}>Add to Cart</button>
+          </div>
         </div>
       </div>
     </div>
