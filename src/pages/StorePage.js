@@ -1,10 +1,12 @@
 import React from 'react';
+import ProductGrid from '../components/ProductGrid';
+import { products } from './StorePageData';
 
-function StorePage() {
+const StorePage = () => {
     return (
-        <div>
+        <div className='container'>
             <h1>Store</h1>
-            <p>Check out our products!</p>
+            <ProductGrid products={products} />
         </div>
     );
 };
