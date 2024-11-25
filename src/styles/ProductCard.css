@@ -32,3 +32,24 @@
     font-weight: bold;
     margin-bottom: 8px;
 }
+
+.card-text {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 16px;
+}
+
+.view-product-btn,
+.btn-primary {
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
