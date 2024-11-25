@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# **Apple Vault - A React Web Store**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to **Apple Vault**, your go-to online store for everything Apple. This project was built using technologies and tools like React and Redux to provide the best shopping experience for all users.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## **Features**
 
-### `npm start`
+- **User Registration and Login**:
+  - Secure and validated registration form for new users.
+  - Login functionality with state-managed authentication.
+- **Product Browsing**:
+  - Explore a catalog of Apple products across multiple categories.
+  - View detailed product information on individual product pages.
+- **Cart Management**:
+  - Add products to your cart, update quantities, and view the total cost.
+  - Remove items from the cart with real-time updates.
+- **Search and Filters**:
+  - Search for products using a responsive search bar.
+  - Filter products by category on department pages.
+- **Shipping Options**:
+  - Select between standard and express shipping.
+  - View detailed shipping information via a Help Modal.
+- **Responsive and Intuitive UI**:
+  - Designed for both desktop and mobile devices.
+  - Styled using Bootstrap and custom CSS.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## **Technologies Used**
 
-### `npm test`
+- **React**: Component-based UI library for building the app.
+- **Redux Toolkit**: State management for user authentication and cart functionality.
+- **React Router**: Navigation and routing between pages.
+- **Bootstrap**: Predefined styling for a responsive layout.
+- **CSS Modules**: Custom styles for individual components.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## **Getting Started**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Follow these steps to set up and run the application locally.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### **Prerequisites**
+- **Node.js** (version 14.x or higher)
+- **npm** (Node Package Manager)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### **Installation**
 
-### `npm run eject`
+1.  Clone the repository:
+   ```bash
+   git clone [your-repo-url]
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2.  Navigate to the project directory:
+    cd apple-vault
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3.  Install dependencies:
+    npm install
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4.  Start the application:
+    npm start
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+5.  Open your browser and visit:
+    http://localhost:3000
+    
+---
 
-## Learn More
+## **Usage**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Navigation**:
+    - Use the navigation bar to switch between the Home, Store, and Cart pages.
+    - Utilise the Search Bar to find specific products by name.
+- **Shopping**:
+    1. Browse the store to view available products.
+    2. Add items to your cart.
+    3. Proceed to the cart page to review and finalise your selection.
+- **Registration and Login**:
+    - Register as a new user and log in to manage your profile.
+- **Cart and Shipping**:
+    - Manage items in your cart, select shipping options, and view shipping details.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## **File Structure**
+src/
+├── components/      # Reusable UI components
+├── pages/           # Main pages (LandingPage, StorePage, CartPage, etc.)
+├── redux/           # Redux slices for state management
+├── styles/          # Component-specific CSS files
+├── App.js           # Root application component
+└── index.js         # Entry point for the application
