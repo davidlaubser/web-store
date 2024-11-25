@@ -6,10 +6,13 @@ import SearchBar from './SearchBar';
 import '../styles/Header.css';
 
 const Header = () => {
-  const user = useSelector((state) => state.user);
+  const cart = useSelector(state => state.cart);
+  const user = useSelector(state => state.user);
   const dispatch = useDispatch();
 
-  const handleLogout = () => {
+  const totalQuantity = cart.items.reduce((total, item) => total + item.quantity, 0);
+
+  const handleSignOut = () => {
     dispatch(logout());
   };
 
@@ -27,6 +30,17 @@ const Header = () => {
           <li className="nav-item">
             <Link className="nav-link" to="/store">Store</Link>
           </li>
+          <li className="nav-item dropdown">
+            <button className="btn nav-link dropdown-toggle" id="departmentDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              Shop by Department
+            </button>
+            <ul className="dropdown-menu" aria-labelledby="departmentDropdown">
+              <li><Link className="dropdown-item" to="/store/phones">Phones</Link></li>
+              <li><Link className="dropdown-item" to="/store/laptops">Laptops</Link></li>
+              <li><Link className="dropdown-item" to="/store/tablets">Tablets</Link></li>
+              <li><Link className="dropdown-item" to="/store/accessories">Accessories</Link></li>
+            </ul>
+          </li>
         </ul>
         <div className="navbar-center">
           <SearchBar />
@@ -38,7 +52,7 @@ const Header = () => {
                 <span className="navbar-text">Signed in as: {user.username}</span>
               </li>
               <li className="nav-item">
-                <button className="btn btn-link nav-link" onClick={handleLogout}>Sign Out</button>
+                <button className="btn btn-link nav-link" onClick={handleSignOut}>Sign Out</button>
               </li>
             </>
           ) : (
@@ -52,7 +66,7 @@ const Header = () => {
             </>
           )}
           <li className="nav-item">
-            <Link className="nav-link" to="/cart">Cart</Link>
+            <Link className="nav-link" to="/cart">Cart ({totalQuantity})</Link>
           </li>
         </ul>
       </div>

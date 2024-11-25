@@ -12,6 +12,7 @@ import CartPage from './pages/CartPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ProductDetailsPage from './pages/ProductDetailsPage';
+import DepartmentPage from './pages/DepartmentPage';
 
 
 
@@ -28,6 +29,7 @@ function App() {
               <Route path="/cart" element={<CartPage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
+              <Route path="/store/:department" element={<DepartmentPage />} />
               <Route path="/store/:department/:id" element={<ProductDetailsPage />} />
             </Routes>
           </div>

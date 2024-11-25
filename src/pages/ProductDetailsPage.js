@@ -9,6 +9,7 @@ const ProductDetailsPage = () => {
   const { id } = useParams();
   const product = products.find((product) => product.id === parseInt(id));
   const dispatch = useDispatch();
+
   const addToCart = () => {
     dispatch(addItem(product));
   };
