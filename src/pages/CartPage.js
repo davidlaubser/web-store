@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeItem } from '../redux/cartSlice';
 import '../styles/CartPage.css';
+import HelpModal from '../components/HelpModal'; // Import the HelpModal component
 
 const CartPage = () => {
-    const cart = useSelector(state => state.cart);
+    const cart = useSelector((state) => state.cart);
     const dispatch = useDispatch();
     const [helpVisible, setHelpVisible] = useState(false);
 
@@ -13,13 +14,8 @@ const CartPage = () => {
         currency: 'ZAR',
     }).format(cart.totalAmount);
 
-    const handleHelpClick = () => {
-        setHelpVisible(true);
-    };
-
-    const closeHelpMessage = () => {
-        setHelpVisible(false);
-    };
+    const handleHelpClick = () => setHelpVisible(true);
+    const handleCloseHelp = () => setHelpVisible(false);
 
     return (
         <div className="container">
@@ -34,7 +30,7 @@ const CartPage = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {cart.items.map(item => {
+                    {cart.items.map((item) => {
                         const formattedPrice = new Intl.NumberFormat('en-ZA', {
                             style: 'currency',
                             currency: 'ZAR',
@@ -46,7 +42,12 @@ const CartPage = () => {
                                 <td>{formattedPrice}</td>
                                 <td>{item.quantity}</td>
                                 <td>
-                                    <button className="btn btn-danger btn-sm" onClick={() => dispatch(removeItem(item))}>Remove</button>
+                                    <button
+                                        className="btn btn-danger btn-sm"
+                                        onClick={() => dispatch(removeItem(item))}
+                                    >
+                                        Remove
+                                    </button>
                                 </td>
                             </tr>
                         );
@@ -54,26 +55,21 @@ const CartPage = () => {
                 </tbody>
             </table>
             <div className="shipment-method">
-                <label htmlFor="shipment" className="shipment-label">Select Shipment Method: </label>
+                <label htmlFor="shipment" className="shipment-label">
+                    Select Shipment Method:{' '}
+                </label>
                 <select id="shipment" className="shipment-select">
                     <option value="standard">Standard</option>
                     <option value="express">Express</option>
                 </select>
-                <button className="btn btn-info btn-sm" onClick={handleHelpClick}>Help</button>
+                <button className="btn btn-info btn-sm" onClick={handleHelpClick}>
+                    Help
+                </button>
             </div>
             <div className="total-amount">
                 <h2>Total Amount: {formattedTotalAmount}</h2>
             </div>
-            {helpVisible && (
-                <div className="help-modal">
-                    <div className="help-content">
-                        <h3>Shipment Options</h3>
-                        <p><strong>Standard:</strong> Delivery within 5-7 business days. Cost-effective for non-urgent items.</p>
-                        <p><strong>Express:</strong> Delivery within 1-2 business days. Suitable for urgent deliveries.</p>
-                        <button className="btn btn-secondary btn-sm" onClick={closeHelpMessage}>Close</button>
-                    </div>
-                </div>
-            )}
+            <HelpModal show={helpVisible} handleClose={handleCloseHelp} /> {/* Use HelpModal here */}
         </div>
     );
 };
