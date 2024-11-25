@@ -8,17 +8,3 @@ footer {
 .container {
     padding-bottom: 20px;
 }
-
-.footer-style {
-    background-color: rgba(0, 0, 0, 0.2);
-}
-
-.footer-link {
-    color: #ffffff;
-    text-decoration: none;
-    margin: 0 5px;
-}
-
-.footer-link:hover {
-    text-decoration: underline;
-}

@@ -4,7 +4,7 @@ import '../styles/Footer.css';
 
 const Footer = () => {
     return (
-        <footer className='bottom'>
+        <footer>
             <div className="container p-4">
                 <div className="row">
                     <div className="col-lg-6 col-md-12 mb-4 mb-md-0">
@@ -29,7 +29,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="text-center p-3 footer-style">
+            <div className="text-center p-3" style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
                 © 2024 Apple Vault
             </div>
         </footer>

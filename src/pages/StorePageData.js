@@ -1,8 +1,6 @@
 export const products = [
     { id: 1, name: 'iPhone 15 Pro', price: 22999, image: '/images/iphone15pro.jpg', department: 'phones', description: 'The iPhone 15 Pro features a stunning design and powerful performance.' },
     { id: 2, name: 'MacBook Air 13inch M3', price: 23000, image: '/images/macbookair13inchm3.jpg', department: 'laptops', description: 'The MacBook Air 13-inch M3 is lightweight and powerful, perfect for on-the-go productivity.' },
-    { id: 1, name: 'iPhone 15 Pro', price: 22999, image: '/images/iphone15pro.jpg', department: 'phones', description: 'The iPhone 15 Pro features a stunning design and powerful performance.' },
-    { id: 2, name: 'MacBook Air 13inch M3', price: 23000, image: '/images/macbookair13inchm3.jpg', department: 'laptops', description: 'The MacBook Air 13-inch M3 is lightweight and powerful, perfect for on-the-go productivity.' },
     { id: 3, name: 'iPad Pro M4', price: 20499, image: '/images/ipadprom4.jpg', department: 'tablets', description: 'The iPad Pro M4 offers a large display and advanced features for creative professionals.' },
     { id: 4, name: 'Apple Watch', price: 5999, image: '/images/applewatch.jpg', department: 'accessories', description: 'The Apple Watch keeps you connected and tracks your fitness activities.' },
     { id: 5, name: 'AirPods 4', price: 2499, image: '/images/airpods4.jpg', department: 'accessories', description: 'The AirPods 4 deliver high-quality sound and seamless connectivity.' },

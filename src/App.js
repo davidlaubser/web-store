@@ -13,8 +13,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ProductDetailsPage from './pages/ProductDetailsPage';
 import DepartmentPage from './pages/DepartmentPage';
-
-
+import SearchResultsPage from './pages/SearchResultsPage';
 
 function App() {
   return (
@@ -31,6 +30,7 @@ function App() {
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/store/:department" element={<DepartmentPage />} />
               <Route path="/store/:department/:id" element={<ProductDetailsPage />} />
+              <Route path="/search" element={<SearchResultsPage />} />
             </Routes>
           </div>
           <Footer />

@@ -1,0 +1,17 @@
+.product-details h1 {
+    margin-bottom: 1rem;
+}
+
+.product-details .lead {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.product-details p {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.product-details img {
+    margin-top: 1.25rem;
+}
