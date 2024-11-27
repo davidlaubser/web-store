@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { register } from '../redux/userSlice';
 import '../styles/RegisterPage.css';
 
 const RegisterPage = () => {
@@ -12,16 +14,13 @@ const RegisterPage = () => {
     });
 
     const [errors, setErrors] = useState({});
+    const [successMessage, setSuccessMessage] = useState('');
+    const dispatch = useDispatch();
+    const users = useSelector((state) => state.user.users);
 
-    const validateEmail = (email) => {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(String(email).toLowerCase());
-    };
-
-    const validatePassword = (password) => {
-        const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-        return re.test(password);
-    };
+    const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.toLowerCase());
+    const validatePassword = (password) =>
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password);
 
     const handleChange = (e) => {
         setFormData({
@@ -39,24 +38,33 @@ const RegisterPage = () => {
         }
 
         if (!validatePassword(formData.password)) {
-            newErrors.password = 'Password must contain at least 1 capital letter, 1 letter, 1 special character, and be at least 8 characters long';
+            newErrors.password =
+                'Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, 1 special character, and be at least 8 characters long';
         }
 
         if (formData.password !== formData.confirmPassword) {
             newErrors.confirmPassword = 'Passwords do not match';
         }
 
+        const existingUser = users.find((user) => user.username === formData.username);
+        if (existingUser) {
+            newErrors.username = 'Username already exists';
+        }
+
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
+            setSuccessMessage('');
         } else {
-            console.log('User registered:', formData);
+            dispatch(register(formData));
+            setSuccessMessage('User registered successfully! Please login.');
+            setErrors({});
         }
     };
 
     return (
         <div className="container">
             <h1>Register</h1>
-            <form onSubmit={handleSubmit} className='container-register'>
+            <form onSubmit={handleSubmit} className="container-register">
                 <div className="form-group form-group-register">
                     <label className="form-label">First Name</label>
                     <input
@@ -83,12 +91,13 @@ const RegisterPage = () => {
                     <label className="form-label">Username</label>
                     <input
                         type="text"
-                        className="form-control"
+                        className={`form-control ${errors.username ? 'is-invalid' : ''}`}
                         name="username"
                         value={formData.username}
                         onChange={handleChange}
                         required
                     />
+                    {errors.username && <small className="text-danger">{errors.username}</small>}
                 </div>
                 <div className="form-group form-group-register">
                     <label className="form-label">Email address</label>
@@ -127,6 +136,7 @@ const RegisterPage = () => {
                     {errors.confirmPassword && <small className="text-danger">{errors.confirmPassword}</small>}
                 </div>
                 <button type="submit" className="btn btn-primary btn-register">Register</button>
+                {successMessage && <small className="text-success">{successMessage}</small>}
             </form>
         </div>
     );
