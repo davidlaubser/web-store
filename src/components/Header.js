@@ -19,7 +19,7 @@ const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
       <Link className="navbar-brand" to="/">
-        <img src="/images/storeLogo.png" alt="Apple Vault Logo" className="logo-image" />
+        <img src={`${process.env.PUBLIC_URL}/images/storeLogo.png`} alt="Apple Vault Logo" className="logo-image" />
         Apple Vault
       </Link>
       <div className="collapse navbar-collapse">
